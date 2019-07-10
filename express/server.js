@@ -41,11 +41,12 @@ router.get("/chrome", (req, res) => {
 
     browser.close();
     console.log({ result });
+    return result;
   };
 
-  scrape().then(() => {
+  scrape().then(value => {
     console.log("qwe"); // Success!
-    res.status(200).send(result);
+    res.status(200).send(value);
   });
 });
 router.post("/", (req, res) => res.json({ postBody: req.body }));
